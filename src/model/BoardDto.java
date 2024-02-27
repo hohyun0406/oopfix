@@ -1,6 +1,7 @@
 package model;
 
 public class BoardDto {
+    private int id;
     private String subject;
     private String content;
     private String writer;

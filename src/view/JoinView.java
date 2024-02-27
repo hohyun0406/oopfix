@@ -1,5 +1,8 @@
 package view;
 
+import builder.UserBuilder;
+import model.UserDto;
+
 import java.util.Scanner;
 
 public class JoinView {

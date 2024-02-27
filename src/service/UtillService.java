@@ -12,4 +12,7 @@ public interface UtillService {
 
     String createRandomCompany();
 
+    String createRandomUsername();
+
+
 }

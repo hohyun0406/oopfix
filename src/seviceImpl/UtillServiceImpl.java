@@ -6,7 +6,6 @@ public class UtillServiceImpl implements UtillService {
     private static UtillService instance = new UtillServiceImpl();
     private UtillServiceImpl(){}
 
-
     public static UtillService getInstance(){
         return instance;
     }
@@ -53,8 +52,14 @@ public class UtillServiceImpl implements UtillService {
     @Override
     public String createRandomCompany() {
         String[] companies = {"구글","엔비디아","메타", "삼성", "LG", "애플"};
-        return null;
+        return companies[createRandomInteger(0,6)];
     }
 
+    @Override
+    public String createRandomUsername() {
+        String username = "";
+        for(; username.length() < 5; username += String.valueOf((char)('a' + this.createRandomInteger(0, 26)))); //'a'는 유니코드 97값 + 랜덤수
+        return username;
+    }
 
 }
