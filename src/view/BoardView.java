@@ -17,7 +17,7 @@ public class BoardView {
             articles.add(new BoardBuilder()
                     .title(util.createRandomTitle())
                     .content(util.createRandomContent())
-                    .writer(util.createRandomTitle())
+                    .writer(util.createRandomName())
                     .build());
         }
 

@@ -15,10 +15,7 @@ public class UtillServiceImpl implements UtillService {
     }
 
     public double createRandomDouble(int start, int gapBetweenStartAndEnd) {
-        int a = start + (int)(Math.random()*gapBetweenStartAndEnd);
-        double b = 0;
-        return Math.round(a);
-
+        return Math.round(start + (Math.random()*gapBetweenStartAndEnd)*10)/10.0;//여기 이해하고 넘어가기
     }
 
     public String createRandomName() {
@@ -58,7 +55,9 @@ public class UtillServiceImpl implements UtillService {
     @Override
     public String createRandomUsername() {
         String username = "";
-        for(; username.length() < 5; username += String.valueOf((char)('a' + this.createRandomInteger(0, 26)))); //'a'는 유니코드 97값 + 랜덤수
+        for(;
+            username.length() < 5;
+            username += String.valueOf((char)('a' + this.createRandomInteger(0, 26)))); //'a'는 유니코드 97값 + 랜덤수
         return username;
     }
 

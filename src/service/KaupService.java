@@ -5,5 +5,5 @@ import model.UserDto;
 public interface KaupService {
     String createBmi(UserDto user);
 
-    String createBodyMass();
+    String createBodyMass(String bmi);
 }

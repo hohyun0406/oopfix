@@ -18,7 +18,6 @@ public class UserController {
 
     public void addUsers(){
         AuthService auth = AuthServiceImpl.getInstance();
-        this.users = auth.addUsers();
     }
 
     void findUsers(String username){

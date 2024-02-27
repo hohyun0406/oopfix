@@ -28,6 +28,22 @@ public class UserDto {
         this.weight = weight;
     }
 
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", name='" + name + '\'' +
+                ", jmNumber='" + jmNumber + '\'' +
+                ", callNumber='" + callNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", job='" + job + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }

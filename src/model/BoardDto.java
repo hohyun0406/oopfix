@@ -2,12 +2,12 @@ package model;
 
 public class BoardDto {
     private int id;
-    private String subject;
+    private String title;
     private String content;
     private String writer;
 
-    public BoardDto(String subject, String content, String writer) {
-        this.subject = subject;
+    public BoardDto(String title, String content, String writer) {
+        this.title = title;
         this.content = content;
         this.writer = writer;
     }
@@ -15,18 +15,18 @@ public class BoardDto {
     @Override
     public String toString() {
         return "BoardDto{" +
-                "subject='" + subject + '\'' +
+                "title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", writer='" + writer + '\'' +
                 '}';
     }
 
-    public String getSubject() {
-        return subject;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {

@@ -1,4 +1,6 @@
 package seviceImpl;
 
-public class BoardServiceImpl {
+import service.BoardService;
+
+public class BoardServiceImpl implements BoardService {
 }

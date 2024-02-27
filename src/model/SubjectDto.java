@@ -35,4 +35,13 @@ public class SubjectDto {
     public int getMath() {
         return math;
     }
+
+    @Override
+    public String toString() {
+        return "SubjectDto{" +
+                "korean=" + korean +
+                ", english=" + english +
+                ", math=" + math +
+                '}';
+    }
 }

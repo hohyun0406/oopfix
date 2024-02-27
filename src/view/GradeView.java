@@ -21,8 +21,9 @@ public class GradeView {
         System.out.println("평균 점수를 구하시오.");
 
         UtillService util = UtillServiceImpl.getInstance();
+        GradeService grade = GradeServiceImpl.getInstance();
 
-
+        System.out.println("학생 이름 : ");
         UserDto student23 = new UserBuilder()
                 .name(sc.next())
                 .build();
@@ -33,7 +34,7 @@ public class GradeView {
                 .math(util.createRandomInteger(0,100))
                 .build();
 
-        GradeService grade = GradeServiceImpl.getInstance();
+
         int totalScore = grade.getTotalScore();
         double average = grade.findAvg();
 

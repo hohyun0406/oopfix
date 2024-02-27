@@ -20,7 +20,7 @@ public class KaupView {
         KaupService kaup = KaupServiceImpl.getInstance();
 
         String bmi = kaup.createBmi(person);
-        String bodyMass = kaup.createBodyMass();
+        String bodyMass = kaup.createBodyMass(bmi);
 
 
         System.out.printf("========BMI 계산기========\n" +

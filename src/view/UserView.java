@@ -22,7 +22,8 @@ public class UserView {
           switch (sc.next()){
               case "0" :
                   System.out.println("종료");return;
-              case "1" :
+              case "6" :
+                  System.out.println("===회원목록===");
                   break;
           }
       }
