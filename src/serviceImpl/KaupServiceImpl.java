@@ -1,4 +1,4 @@
-package seviceImpl;
+package serviceImpl;
 
 import model.UserDto;
 import service.KaupService;

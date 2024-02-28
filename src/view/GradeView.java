@@ -5,9 +5,8 @@ import builder.UserBuilder;
 import model.SubjectDto;
 import model.UserDto;
 import service.GradeService;
-import service.UtillService;
-import seviceImpl.GradeServiceImpl;
-import seviceImpl.UtillServiceImpl;
+import service.UtilService;
+import serviceImpl.GradeServiceImpl;
 
 import java.util.Scanner;
 
@@ -20,7 +19,7 @@ public class GradeView {
         System.out.println("수학점수 : ");
         System.out.println("평균 점수를 구하시오.");
 
-        UtillService util = UtillServiceImpl.getInstance();
+        UtilService util = serviceImpl.UtilService.getInstance();
         GradeService grade = GradeServiceImpl.getInstance();
 
         System.out.println("학생 이름 : ");

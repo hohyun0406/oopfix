@@ -1,8 +1,7 @@
 package view;
 
 import model.ProductDto;
-import service.UtillService;
-import seviceImpl.UtillServiceImpl;
+import service.UtilService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
 public class ProductView {
     public static void main(String[] args) {
         List<ProductDto> products = new ArrayList<>();
-        UtillService util = UtillServiceImpl.getInstance();
+        UtilService util = serviceImpl.UtilService.getInstance();
 
         for(;;){
 

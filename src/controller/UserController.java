@@ -1,27 +1,49 @@
 package controller;
 
-import model.UserDto;
-import service.AuthService;
-import seviceImpl.AuthServiceImpl;
 
-import java.util.HashMap;
+import builder.UserBuilder;
+import model.UserDto;
+import service.UserService;
+import serviceImpl.UserServiceImpl;
+
 import java.util.Map;
+import java.util.Scanner;
 
 public class UserController {
-
-
-    private Map<String, UserDto> users;
+    UserServiceImpl userService;
 
     public UserController() {
-        this.users = new HashMap<>();
+        this.userService = new UserServiceImpl();
     }
 
-    public void addUsers(){
-        AuthService auth = AuthServiceImpl.getInstance();
+
+
+    public String addUsers() {
+        return userService.addUsers();
     }
 
-    void findUsers(String username){
-        System.out.println(users.get(username).toString());
+
+    public String countUser() {
+        return userService.countUser();
     }
+
+    public Map<String, UserDto> getUserMap() {
+        return userService.getUserMap();
+    }
+
+    public String join(Scanner sc) {
+        return userService.join(new UserBuilder()
+                .username(sc.next())
+                .password(sc.next())
+                .build());
+    }
+
+    public String login(Scanner sc) {
+        return userService.login(new UserBuilder()
+                .username(sc.next())
+                .password(sc.next())
+                .build());
+    }
+
 
 }

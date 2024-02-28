@@ -1,12 +1,10 @@
-package seviceImpl;
+package serviceImpl;
 
-import service.UtillService;
+public class UtilService implements service.UtilService {
+    private static service.UtilService instance = new UtilService();
+    private UtilService(){}
 
-public class UtillServiceImpl implements UtillService {
-    private static UtillService instance = new UtillServiceImpl();
-    private UtillServiceImpl(){}
-
-    public static UtillService getInstance(){
+    public static service.UtilService getInstance(){
         return instance;
     }
 

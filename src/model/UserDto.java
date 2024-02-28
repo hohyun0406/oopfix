@@ -33,14 +33,12 @@ public class UserDto {
         return "UserDto{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", confirmPassword='" + confirmPassword + '\'' +
                 ", name='" + name + '\'' +
                 ", jmNumber='" + jmNumber + '\'' +
                 ", callNumber='" + callNumber + '\'' +
                 ", address='" + address + '\'' +
-                ", job='" + job + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
+                ", job='" + job + '\''
+                + "\n" +
                 '}';
     }
 

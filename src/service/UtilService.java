@@ -1,6 +1,6 @@
 package service;
 
-public interface UtillService {
+public interface UtilService {
     int createRandomInteger (int start, int gapBetweenStartAndEnd);
     double createRandomDouble (int start, int gapBetweenStartAndEnd);
 

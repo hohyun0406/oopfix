@@ -3,15 +3,14 @@ package view;
 import builder.UserBuilder;
 import model.UserDto;
 import service.KaupService;
-import service.UtillService;
-import seviceImpl.KaupServiceImpl;
-import seviceImpl.UtillServiceImpl;
+import service.UtilService;
+import serviceImpl.KaupServiceImpl;
 
 import java.util.Scanner;
 
 public class KaupView {
     public static void main(Scanner sc) {
-        UtillService util = UtillServiceImpl.getInstance();
+        UtilService util = serviceImpl.UtilService.getInstance();
 
         UserDto person = new UserBuilder()
                 .height(util.createRandomDouble(150, 50))

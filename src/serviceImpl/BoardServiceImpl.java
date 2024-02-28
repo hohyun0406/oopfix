@@ -1,4 +1,4 @@
-package seviceImpl;
+package serviceImpl;
 
 import service.BoardService;
 
