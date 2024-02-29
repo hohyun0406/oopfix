@@ -5,10 +5,7 @@ import model.UserDto;
 import service.AuthService;
 import service.UtilService;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class AuthServiceImpl implements AuthService {
     private static AuthService instance = new AuthServiceImpl();
@@ -17,6 +14,8 @@ public class AuthServiceImpl implements AuthService {
         this.users = new HashMap<>();
     }
     public static AuthService getInstance(){return instance;}
+
+
     @Override
     public String join(UserDto user) {
         users.put(user.getUsername(), user);
@@ -43,22 +42,25 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserDto findUserById(String username) {
-        return null;
+        return users.get(username);
     }
 
     @Override
     public String updatePassword(UserDto user) {
-        return null;
+        users.get(user.getUsername()).setPassword(user.getPassword());
+
+        return "비번 변경 성공";
     }
 
     @Override
     public String deleteUser(String username) {
+        users.remove(username);
         return null;
     }
 
     @Override
     public List<UserDto> getUserList() {
-        return null;
+        return new ArrayList<>(users.values());
     }
 
     @Override

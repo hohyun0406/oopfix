@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class UserController {
-    UserServiceImpl userService;
+    UserService userService;
 
     public UserController() {
         this.userService = new UserServiceImpl();

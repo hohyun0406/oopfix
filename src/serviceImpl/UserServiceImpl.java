@@ -9,6 +9,7 @@ import service.UtilService;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class UserServiceImpl implements UserService {
@@ -60,7 +61,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String login(UserDto build) {
-        String msg;
+
 
         String inputUsername = build.getUsername();
         String inputPassword = build.getPassword();
@@ -68,13 +69,13 @@ public class UserServiceImpl implements UserService {
         UserDto specificUserDto = users.get(inputUsername);
 
         if (specificUserDto==null){
-            msg = "아이디가 틀렸습니다.";
-        }else if (specificUserDto.getPassword()!=inputPassword){
-            msg = "비밀번호가 틀렸습니다.";
+            System.out.println("아이디가 틀렸습니다.");
+        }else if(!Objects.equals(specificUserDto.getPassword(), inputPassword)){
+            System.out.println("비밀번호가 틀렸습니다.");
         }else{
-            msg = "로그인 성공";
+            System.out.println("로그인 성공");
         }
-        return msg;
+        return null;
     }
 
 
