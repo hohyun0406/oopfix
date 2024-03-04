@@ -1,8 +1,7 @@
 package controller;
 
 
-import builder.UserBuilder;
-import model.UserDto;
+import model.User;
 import service.UserService;
 import serviceImpl.UserServiceImpl;
 
@@ -27,19 +26,19 @@ public class UserController {
         return userService.countUser();
     }
 
-    public Map<String, UserDto> getUserMap() {
+    public Map<String, User> getUserMap() {
         return userService.getUserMap();
     }
 
     public String join(Scanner sc) {
-        return userService.join(new UserBuilder()
+        return userService.join(User.builder()
                 .username(sc.next())
                 .password(sc.next())
                 .build());
     }
 
     public String login(Scanner sc) {
-        return userService.login(new UserBuilder()
+        return userService.login(User.builder()
                 .username(sc.next())
                 .password(sc.next())
                 .build());

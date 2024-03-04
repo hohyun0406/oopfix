@@ -1,9 +1,8 @@
 package view;
 
 import controller.UserController;
-import model.UserDto;
+import model.User;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -49,7 +48,7 @@ public class UserView {
                   break;
               case "6":
                   System.out.println("6-회원목록");
-                  Map<String,UserDto> userMap = userController.getUserMap();
+                  Map<String, User> userMap = userController.getUserMap();
                   userMap.forEach((k,v)->{
                       System.out.printf("아이디 %s, 회원 정보 %s",k,v);
                   });

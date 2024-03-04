@@ -1,18 +1,15 @@
 package controller;
 
-import builder.AccountBuilder;
-import model.AccountDto;
-import model.UserDto;
+import model.Account;
+import model.User;
 import service.AccountService;
 import serviceImpl.AccountServiceImpl;
-import serviceImpl.AuthServiceImpl;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 
 public class AccountController{
-    public HashMap<String, UserDto> getAccount;
+    public HashMap<String, User> getAccount;
     AccountService accountService;
 
     public AccountController() {
@@ -21,32 +18,29 @@ public class AccountController{
 
 
     public String createAccount(Scanner sc) {
-        return accountService.createAccount(new AccountBuilder()
-                .buildId(sc.nextLong())
-                .buildAccountNumber(sc.next())
-                .buildAccountHolder(sc.next())
-                .buildBalance(sc.nextDouble())
-                .buildTransactionDate()
+        return accountService.createAccount(Account.builder()
+                .id(sc.nextLong())
+                .accountNumber(sc.next())
+                .accountHolder(sc.next())
+                .balance(sc.nextDouble())
                 .build());
     }
 
     public String deposit(Scanner sc) {
-        return accountService.createAccount(new AccountBuilder()
-                .buildId(sc.nextLong())
-                .buildAccountNumber(sc.next())
-                .buildAccountHolder(sc.next())
-                .buildBalance(sc.nextDouble())
-                .buildTransactionDate()
+        return accountService.createAccount(Account.builder()
+                .id(sc.nextLong())
+                .accountNumber(sc.next())
+                .accountHolder(sc.next())
+                .balance(sc.nextDouble())
                 .build());
     }
 
     public String withdraw(Scanner sc) {
-        return accountService.createAccount(new AccountBuilder()
-                .buildId(sc.nextLong())
-                .buildAccountNumber(sc.next())
-                .buildAccountHolder(sc.next())
-                .buildBalance(sc.nextDouble())
-                .buildTransactionDate()
+        return accountService.createAccount(Account.builder()
+                .id(sc.nextLong())
+                .accountNumber(sc.next())
+                .accountHolder(sc.next())
+                .balance(sc.nextDouble())
                 .build());
     }
 
@@ -55,12 +49,11 @@ public class AccountController{
     }
 
     public String deleteAccount(Scanner sc) {
-        return accountService.createAccount(new AccountBuilder()
-                .buildId(sc.nextLong())
-                .buildAccountNumber(sc.next())
-                .buildAccountHolder(sc.next())
-                .buildBalance(sc.nextDouble())
-                .buildTransactionDate()
+        return accountService.createAccount(Account.builder()
+                .id(sc.nextLong())
+                .accountNumber(sc.next())
+                .accountHolder(sc.next())
+                .balance(sc.nextDouble())
                 .build());
     }
 }

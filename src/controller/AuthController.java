@@ -1,7 +1,6 @@
 package controller;
 
-import builder.UserBuilder;
-import model.UserDto;
+import model.User;
 import service.AuthService;
 import serviceImpl.AuthServiceImpl;
 
@@ -31,7 +30,7 @@ public class AuthController{
                 "전화번호, " +
                 "주소, " +
                 "직업을 입력해주세요");
-        return authService.join(new UserBuilder()
+        return authService.join(User.builder()
                 .username(scanner.next())
                 .password(scanner.next())
                 .confirmPassword(scanner.next())
@@ -43,13 +42,13 @@ public class AuthController{
 
     public String login(Scanner scanner) {
         System.out.println("로그인할 ID 입력 : ");
-        return authService.login(new UserBuilder()
+        return authService.login(User.builder()
                 .username(scanner.next())
                 .password(scanner.next())
                 .build());
     }
 
-    public UserDto findUserById(Scanner scanner) {
+    public User findUserById(Scanner scanner) {
         System.out.println("검색할 ID 입력 : ");
 
         return authService.findUserById(scanner.next());
@@ -58,7 +57,7 @@ public class AuthController{
     public String updatePassword(Scanner scanner) {
         System.out.println("수정할 ID 입력 : ");
         System.out.println("수정할 비번 입력 : ");
-        return authService.updatePassword(new UserBuilder()
+        return authService.updatePassword(User.builder()
                 .username(scanner.next())
                 .password(scanner.next())
                 .build());
@@ -69,19 +68,19 @@ public class AuthController{
         return authService.deleteUser(scanner.next());
     }
 
-    public Map<String, UserDto> getUserMap() {
+    public Map<String, User> getUserMap() {
         System.out.println("전체 목록 출력");
         return authService.getUserMap();
     }
 
 
 
-    public List<UserDto> findUsersByName(Scanner scanner) {
+    public List<User> findUsersByName(Scanner scanner) {
         System.out.println("이름으로 검색");
         return authService.findUsersByName(scanner.next());
     }
 
-    public List<UserDto> findUsersByJob(Scanner scanner) {
+    public List<User> findUsersByJob(Scanner scanner) {
         System.out.println("직업으로 검색");
         return authService.findUsersByJob(scanner.next());
     }

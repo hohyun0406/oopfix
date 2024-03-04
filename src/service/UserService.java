@@ -1,8 +1,7 @@
 package service;
 
-import model.UserDto;
+import model.User;
 
-import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -11,9 +10,9 @@ public interface UserService {
 
     String countUser();
 
-    Map<String,UserDto> getUserMap();
+    Map<String, User> getUserMap();
 
-    String join(UserDto build);
+    String join(User build);
 
-    String login(UserDto build);
+    String login(User build);
 }

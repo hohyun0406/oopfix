@@ -1,9 +1,7 @@
 package view;
 
 import controller.AccountController;
-import model.AccountDto;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class AccountView {
@@ -44,9 +42,9 @@ public class AccountView {
                     break;
                 case "6" :
                     System.out.println("Account List");
-                    accountController.getAccount.forEach((i)->{
-                        System.out.println(i);
-                    });
+//                    accountController.getAccount.forEach((i)->{
+//                        System.out.println(i);
+//                    });
                     System.out.println();
                     break;
             }

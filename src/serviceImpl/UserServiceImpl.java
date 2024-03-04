@@ -1,7 +1,6 @@
 package serviceImpl;
 
-import builder.UserBuilder;
-import model.UserDto;
+import model.User;
 
 import repository.UserRepository;
 import service.UserService;
@@ -10,12 +9,11 @@ import service.UtilService;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class UserServiceImpl implements UserService {
 
     UserRepository userRepository;
-    Map<String, UserDto> users;
+    Map<String, User> users;
 
     public UserServiceImpl() {
         this.userRepository = new UserRepository();
@@ -25,14 +23,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String addUsers() {
-        Map<String, UserDto> map = new HashMap<>();
+        Map<String, User> map = new HashMap<>();
         UtilService util = serviceImpl.UtilService.getInstance();
 
 
         for(int i = 0 ; i<5 ; i++){
             String newUsername = util.createRandomUsername();
             map.put(newUsername,
-                    new UserBuilder()
+                    User.builder()
                             .username(newUsername)
                             .password("1")
                             .confirmPassword("1")
@@ -49,28 +47,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String,UserDto> getUserMap() {
+    public Map<String, User> getUserMap() {
         return users;
     }
 
     @Override
-    public String join(UserDto build) {
+    public String join(User build) {
         users.put(build.getUsername(), build);
         return "회원가입 성공";
     }
 
     @Override
-    public String login(UserDto build) {
+    public String login(User build) {
 
 
         String inputUsername = build.getUsername();
         String inputPassword = build.getPassword();
 
-        UserDto specificUserDto = users.get(inputUsername);
+        User specificUser = users.get(inputUsername);
 
-        if (specificUserDto==null){
+        if (specificUser ==null){
             System.out.println("아이디가 틀렸습니다.");
-        }else if(!Objects.equals(specificUserDto.getPassword(), inputPassword)){
+        }else if(!Objects.equals(specificUser.getPassword(), inputPassword)){
             System.out.println("비밀번호가 틀렸습니다.");
         }else{
             System.out.println("로그인 성공");

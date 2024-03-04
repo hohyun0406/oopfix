@@ -1,9 +1,7 @@
 package view;
 
-import builder.SubjectBuilder;
-import builder.UserBuilder;
-import model.SubjectDto;
-import model.UserDto;
+import model.Subject;
+import model.User;
 import service.GradeService;
 import service.UtilService;
 import serviceImpl.GradeServiceImpl;
@@ -23,11 +21,11 @@ public class GradeView {
         GradeService grade = GradeServiceImpl.getInstance();
 
         System.out.println("학생 이름 : ");
-        UserDto student23 = new UserBuilder()
+        User student23 = User.builder()
                 .name(sc.next())
                 .build();
 
-        SubjectDto subjects = new SubjectBuilder()
+        Subject subjects = Subject.builder()
                 .korean(util.createRandomInteger(0,100))
                 .english(util.createRandomInteger(0,100))
                 .math(util.createRandomInteger(0,100))
