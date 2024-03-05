@@ -9,16 +9,11 @@ import java.util.*;
 public class AuthServiceImpl implements AuthService {
     private static AuthService instance = new AuthServiceImpl();
     Map<String, User> users;
-    List<User> userList;
 
     private AuthServiceImpl(){
         this.users = new HashMap<>();
-        this.userList = new ArrayList<>();
     }
-
     public static AuthService getInstance(){return instance;}
-
-
     @Override
     public String join(User user) {
         users.put(user.getUsername(), user);
@@ -27,25 +22,16 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String login(User user) {
-        String msg = "";
-        User userInMap = users.get(user.getUsername());
-
-        if(userInMap == null){
-            msg = "아이디 틀림";
-        } else {
-            if(userInMap.getUsername().equals(user.getPassword())){
-                msg = "로그인 성공";
-            }else{
-                msg = "비밀번호 틀림";
-            }
-        }
-
-        return msg;
+        return users.getOrDefault(user.getUsername(), User.builder().password("").build())
+                .getPassword()
+                .equals(user.getPassword()) ?
+                "로그인 성공" : "로그인 실패";
     }
 
     @Override
     public User findUserById(String username) {
-        return users.get(username);
+        return users.get(username)
+                ;
     }
 
     @Override
@@ -58,21 +44,23 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String deleteUser(String username) {
         users.remove(username);
+        return "회원삭제";
+    }
+
+    @Override
+    public List<?> getUserList() {
+        return  new ArrayList<>(users.values());
+    }
+
+    @Override
+    public List<?> findUsersByName(String name) {
+
         return null;
     }
 
     @Override
-    public List<User> getUserList() {
-        return new ArrayList<>(users.values());
-    }
+    public List<?> findUsersByJob(String job) {
 
-    @Override
-    public List<User> findUsersByName(String name) {
-        return null;
-    }
-
-    @Override
-    public List<User> findUsersByJob(String job) {
         return null;
     }
 
@@ -82,14 +70,14 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Map<String, User> getUserMap() {
+    public Map<String, ?> getUserMap() {
         return users;
     }
 
     @Override
     public String addUsers() {
         Map<String, User> map = new HashMap<>();
-        UtilService util = serviceImpl.UtilService.getInstance();
+        UtilService util = UtilServiceImpl.getInstance();
 
         for(int i=0; i<5; i++){
             String username = util.createRandomUsername();
@@ -97,7 +85,6 @@ public class AuthServiceImpl implements AuthService {
                     User.builder()
                             .username(username)
                             .password("1")
-                            .confirmPassword("1")
                             .name(util.createRandomName())
                             .build());
         }

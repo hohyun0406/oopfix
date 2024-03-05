@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String addUsers() {
         Map<String, User> map = new HashMap<>();
-        UtilService util = serviceImpl.UtilService.getInstance();
+        UtilService util = UtilServiceImpl.getInstance();
 
 
         for(int i = 0 ; i<5 ; i++){

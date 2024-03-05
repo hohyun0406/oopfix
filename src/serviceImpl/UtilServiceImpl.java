@@ -1,8 +1,8 @@
 package serviceImpl;
 
-public class UtilService implements service.UtilService {
-    private static service.UtilService instance = new UtilService();
-    private UtilService(){}
+public class UtilServiceImpl implements service.UtilService {
+    private static service.UtilService instance = new UtilServiceImpl();
+    private UtilServiceImpl(){}
 
     public static service.UtilService getInstance(){
         return instance;

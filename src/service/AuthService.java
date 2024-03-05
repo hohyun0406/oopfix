@@ -17,5 +17,5 @@ public interface AuthService {
     List<?> findUsersByJob(String job);
     String countUsers();
 
-    Map<String, User> getUserMap();
+    Map<String, ?> getUserMap();
 }
