@@ -22,8 +22,8 @@ public class Main {
                 case "5" : UserView.main(sc);break;
 
                 case "6" : AccountView.main(sc);break;
-
             }
+            System.out.println("123");
         }
     }
 }

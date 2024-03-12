@@ -1,4 +1,6 @@
 package strategy;
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 import java.util.function.BiFunction;
 enum Operator {
